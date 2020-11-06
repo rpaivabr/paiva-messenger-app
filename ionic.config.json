@@ -1,0 +1,7 @@
+{
+  "name": "paiva-messenger-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
