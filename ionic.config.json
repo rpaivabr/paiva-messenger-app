@@ -1,7 +1,12 @@
 {
   "name": "paiva-messenger-app",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": true
+    },
+    "cordova": {
+      "enabled": false
+    }
   },
   "type": "angular"
 }

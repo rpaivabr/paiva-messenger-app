@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Paiva Messenger</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <img src="assets/icon/logo.svg" class="logo" />
+    <!-- <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" #name></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" inputmode="email" #email (keyup.enter)="login(email.value)"></ion-input>
+    </ion-item>
+    <ion-button expand="block" class="button" (click)="login(email.value)">Enter</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "paiva-messenger-9817b": {
+      "hosting": {
+        "app": [
+          "paiva-messenger-9817b"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="unsetContact()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ contactName ? contactName : noName }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+  <div id="container">
+    <div class="messages">
+      <div 
+        *ngFor="let message of messages$ | async" 
+        class="message-box" 
+        [class.message-box--me]="message.to === selected">
+        {{ message.text }}
+        <div class="message-box--timestamp">{{ message.timestamp?.seconds * 1000 | date : 'HH:mm' }}</div>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <form [formGroup]="messageForm">
+        <ion-label position="floating">Digite uma mensagem</ion-label>
+        <ion-input formControlName="message" (keypress)="handleSubmit($event)"></ion-input>
+      </form>
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-fab-button size="small" (click)="handleSubmit($event)">
+        <ion-icon name="send-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

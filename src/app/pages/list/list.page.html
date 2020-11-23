@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Paiva Messenger</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item>
+      <form [formGroup]="searchForm">
+        <ion-label position="floating">Pesquisar</ion-label>
+        <ion-input formControlName="search"></ion-input>
+      </form>
+    </ion-item>
+
+    <ion-list-header>Contatos</ion-list-header>
+
+    <ion-item
+      *ngFor="let c of filteredContacts"
+      [routerLink]="['/talk', c.uid]"
+    >
+      <ion-avatar slot="start">
+        <img [src]="c.photoURL ? c.photoURL : noAvatar" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ c.displayName ? c.displayName : noName }}</h2>
+        <p>{{ c.email }}</p>
+      </ion-label>
+      <div class="notifications">
+        <ion-note slot="end">12:43</ion-note>
+        <ion-badge color="primary" slot="end" class="badge" *ngIf="c.new > 0"
+          >{{ c.new }}</ion-badge
+        >
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
